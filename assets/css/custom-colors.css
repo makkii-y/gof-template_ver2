@@ -1,0 +1,137 @@
+/**
+ * Primary Color Variables CSS
+ * プライマリカラー変数を使用したスタイル
+ *
+ * @package GOF_Template_Ver2
+ */
+
+/* ==============================================
+   基本的な要素への色の適用
+   ============================================== */
+
+/* リンク関連 */
+a {
+    color: var(--gof-color-link, #007cba);
+    transition: color 0.3s ease;
+}
+
+a:hover,
+a:focus {
+    color: var(--gof-color-link-hover, #005a87);
+}
+
+/* ==============================================
+   ボタン
+   ============================================== */
+
+/* プライマリボタン */
+.btn-primary,
+.button-primary,
+input[type="submit"] {
+    background-color: var(--gof-color-primary, #007cba);
+    color: white;
+    border: 1px solid var(--gof-color-primary, #007cba);
+    padding: 12px 24px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover,
+.button-primary:hover,
+input[type="submit"]:hover {
+    background-color: var(--gof-color-primary-dark, #005a87);
+    border-color: var(--gof-color-primary-dark, #005a87);
+}
+
+/* アウトラインボタン */
+.btn-outline-primary {
+    background-color: transparent;
+    color: var(--gof-color-primary, #007cba);
+    border: 2px solid var(--gof-color-primary, #007cba);
+    padding: 10px 22px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--gof-color-primary, #007cba);
+    color: white;
+}
+
+/* ==============================================
+   フォーム要素
+   ============================================== */
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="password"]:focus,
+input[type="search"]:focus,
+input[type="number"]:focus,
+input[type="tel"]:focus,
+input[type="range"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="week"]:focus,
+input[type="time"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="color"]:focus,
+textarea:focus,
+select:focus {
+    border-color: var(--gof-color-primary, #007cba);
+    box-shadow: 0 0 0 0.2rem var(--gof-color-primary-light, rgba(0, 124, 186, 0.1));
+    outline: none;
+}
+
+/* ==============================================
+   アラート・メッセージ
+   ============================================== */
+
+.alert-info {
+    color: var(--gof-color-primary, #007cba);
+    background-color: var(--gof-color-primary-light, rgba(0, 124, 186, 0.1));
+    border-color: var(--gof-color-primary, #007cba);
+    border: 1px solid;
+    padding: 12px 16px;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+/* ==============================================
+   ページネーション
+   ============================================== */
+
+.pagination a:hover {
+    background-color: var(--gof-color-primary, #007cba);
+    color: white;
+    border-color: var(--gof-color-primary, #007cba);
+}
+
+.pagination .current {
+    background-color: var(--gof-color-primary, #007cba);
+    color: white;
+    border-color: var(--gof-color-primary, #007cba);
+}
+
+/* ==============================================
+   ユーティリティクラス
+   ============================================== */
+
+/* テキストカラー */
+.text-primary { 
+    color: var(--gof-color-primary, #007cba) !important; 
+}
+
+/* 背景カラー */
+.bg-primary { 
+    background-color: var(--gof-color-primary, #007cba) !important; 
+    color: white;
+}
+
+/* ボーダー */
+.border-primary { 
+    border-color: var(--gof-color-primary, #007cba) !important; 
+}

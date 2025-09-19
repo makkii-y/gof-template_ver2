@@ -1,0 +1,293 @@
+/**
+ * カスタムフィールド管理画面用CSS
+ */
+
+/* ==============================================
+   カスタムフィールド全体のスタイル
+   ============================================== */
+.gof-custom-fields-wrapper {
+    margin: 15px 0;
+}
+
+.gof-field-wrapper {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #e1e1e1;
+    border-radius: 4px;
+    background: #fff;
+}
+
+.gof-field-wrapper label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #23282d;
+}
+
+/* ==============================================
+   画像フィールドのスタイル
+   ============================================== */
+.gof-image-field {
+    position: relative;
+}
+
+.gof-image-preview {
+    margin-bottom: 10px;
+    min-height: 20px;
+}
+
+.gof-image-preview img {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.gof-select-image,
+.gof-remove-image {
+    margin-right: 5px;
+}
+
+/* ==============================================
+   繰り返しフィールドのスタイル（改良版）
+   ============================================== */
+.gof-repeater-field {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 0;
+    background: #f9f9f9;
+    margin-bottom: 15px;
+}
+
+.gof-repeater-header {
+    background: #f1f1f1;
+    border-bottom: 1px solid #ddd;
+    padding: 12px 15px;
+    border-radius: 4px 4px 0 0;
+}
+
+.gof-repeater-header h4 {
+    margin: 0 0 8px 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: #23282d;
+}
+
+.gof-add-row {
+    color: #2271b1;
+    border-color: #2271b1;
+    background: #f6f7f7;
+}
+
+.gof-add-row:hover {
+    background: #2271b1;
+    border-color: #135e96;
+    color: #fff;
+}
+
+.gof-repeater-rows {
+    padding: 0;
+}
+
+.gof-repeater-row {
+    border-bottom: 1px solid #ddd;
+    background: #fff;
+    position: relative;
+}
+
+.gof-repeater-row:last-child {
+    border-bottom: none;
+}
+
+.gof-repeater-row-header {
+    background: #fafafa;
+    border-bottom: 1px solid #e1e1e1;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.gof-repeater-row-number {
+    font-weight: 600;
+    color: #23282d;
+    font-size: 13px;
+}
+
+.gof-remove-row {
+    background: none;
+    border: none;
+    color: #b32d2e;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 3px;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+.gof-remove-row:hover {
+    background: #d63638;
+    color: #fff;
+}
+
+.gof-repeater-row-content {
+    padding: 15px;
+}
+
+.gof-sub-field-wrapper {
+    margin-bottom: 15px;
+}
+
+.gof-sub-field-wrapper:last-child {
+    margin-bottom: 0;
+}
+
+.gof-sub-field-wrapper label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    font-size: 13px;
+    color: #23282d;
+}
+
+/* サブフィールド内の画像フィールド */
+.gof-sub-field-wrapper .gof-image-field {
+    margin-top: 5px;
+}
+
+.gof-sub-field-wrapper .gof-image-preview {
+    margin-bottom: 8px;
+    min-height: 16px;
+}
+
+.gof-sub-field-wrapper .gof-image-preview img {
+    max-width: 80px;
+    height: auto;
+    border: 1px solid #ccd0d4;
+    border-radius: 3px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.gof-sub-field-wrapper .button-small {
+    padding: 2px 8px;
+    font-size: 11px;
+    line-height: 1.4;
+    height: auto;
+    min-height: 24px;
+}
+
+/* サブフィールド内の入力フィールド */
+.gof-sub-field-wrapper input[type="text"],
+.gof-sub-field-wrapper textarea,
+.gof-sub-field-wrapper select {
+    width: 100%;
+    max-width: 100%;
+}
+
+.gof-sub-field-wrapper textarea {
+    resize: vertical;
+    min-height: 60px;
+}
+
+/* ==============================================
+   レスポンシブ対応
+   ============================================== */
+@media (max-width: 782px) {
+    .gof-field-wrapper {
+        padding: 10px;
+    }
+    
+    .gof-repeater-header {
+        padding: 10px;
+    }
+    
+    .gof-repeater-row-header {
+        padding: 8px 10px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+    
+    .gof-repeater-row-content {
+        padding: 10px;
+    }
+    
+    .gof-remove-row {
+        align-self: flex-end;
+        margin-top: -5px;
+    }
+    
+    /* モバイルでのフィールド幅調整 */
+    .gof-sub-field-wrapper input[type="text"],
+    .gof-sub-field-wrapper textarea,
+    .gof-sub-field-wrapper select {
+        font-size: 16px; /* iOS Safari でのズーム防止 */
+    }
+}
+
+/* ==============================================
+   フィールドタイプ別のスタイル
+   ============================================== */
+
+/* テキストフィールド */
+.gof-field-type-text input[type="text"],
+.gof-sub-field-type-text input[type="text"] {
+    width: 100%;
+    max-width: 400px;
+}
+
+/* テキストエリアフィールド */
+.gof-field-type-textarea textarea,
+.gof-sub-field-type-textarea textarea {
+    width: 100%;
+    max-width: 600px;
+    resize: vertical;
+}
+
+/* セレクトフィールド */
+.gof-field-type-select select,
+.gof-sub-field-type-select select {
+    max-width: 300px;
+}
+
+/* 画像フィールド */
+.gof-field-type-image {
+    max-width: 400px;
+}
+
+/* 繰り返しフィールド */
+.gof-field-type-repeater {
+    border: none;
+    padding: 0;
+    background: none;
+}
+
+/* ==============================================
+   状態管理とアクセシビリティ
+   ============================================== */
+
+/* フォーカス状態 */
+.gof-add-row:focus {
+    box-shadow: 0 0 0 2px #2271b1;
+    outline: none;
+}
+
+.gof-remove-row:focus {
+    outline: 2px solid #d63638;
+    outline-offset: 1px;
+}
+
+.gof-sub-field-wrapper input:focus,
+.gof-sub-field-wrapper textarea:focus,
+.gof-sub-field-wrapper select:focus {
+    border-color: #2271b1;
+    box-shadow: 0 0 0 1px #2271b1;
+}
+
+/* ホバー状態の改善 */
+.gof-repeater-row:hover {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.gof-repeater-row-header:hover {
+    background: #f0f0f1;
+}

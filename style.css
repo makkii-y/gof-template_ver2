@@ -1,0 +1,51 @@
+/*
+Theme Name: GOF Template Ver2
+Description: A custom WordPress theme template
+Author: Your Name
+Version: 1.0.0
+Text Domain: gof-template-ver2
+*/
+
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header styles */
+.site-header {
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    padding: 1rem 0;
+}
+
+.site-title {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+/* Main content */
+.site-main {
+    padding: 2rem 0;
+}
+
+/* Footer styles */
+.site-footer {
+    background: #f8f9fa;
+    border-top: 1px solid #eee;
+    padding: 1rem 0;
+    text-align: center;
+}

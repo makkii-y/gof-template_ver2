@@ -1,0 +1,58 @@
+/**
+ * 構造化データ管理画面用CSS
+ */
+
+.gof-structured-data-tabs .nav-tab-wrapper {
+    border-bottom: 1px solid #ccd0d4;
+    margin-bottom: 20px;
+}
+
+.gof-structured-data-tabs .tab-content {
+    display: none;
+}
+
+.gof-structured-data-tabs .tab-content.active {
+    display: block;
+}
+
+.required {
+    color: #d63638;
+}
+
+#restaurant-fields {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 15px;
+    margin-top: 20px;
+    background: #f9f9f9;
+}
+
+#restaurant-fields h3 {
+    margin-top: 0;
+    color: #23282d;
+}
+
+.form-table th {
+    width: 200px;
+    vertical-align: top;
+    padding-top: 15px;
+}
+
+.form-table td {
+    vertical-align: top;
+    padding-top: 10px;
+}
+
+.closed-checkbox {
+    margin-left: 10px;
+}
+
+input[type="time"] {
+    margin: 0 5px;
+}
+
+.description {
+    font-style: italic;
+    color: #666;
+    margin-top: 5px;
+}
