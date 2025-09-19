@@ -19,6 +19,7 @@ function gof_get_service_structured_data($data, $post_id) {
     $service_area_served = get_post_meta($post_id, 'service_area_served', true);
     $service_price = get_post_meta($post_id, 'service_price', true);
     $service_currency = get_post_meta($post_id, 'service_currency', true);
+    $service_price_description = get_post_meta($post_id, 'service_price_description', true);
     
     // 組織情報を取得
     $org_data = get_option('gof_organization_data', array());
@@ -99,14 +100,34 @@ function gof_get_service_structured_data($data, $post_id) {
         }
     }
     
+    // オファー情報（料金・販売情報）
+    $offer_data = array(
+        '@type' => 'Offer'
+    );
+    
     // 料金情報
-    if (!empty($service_price) && !empty($service_currency)) {
-        $service_data['offers'] = array(
-            '@type' => 'Offer',
-            'priceCurrency' => $service_currency,
-            'price' => $service_price
-        );
+    if (!empty($service_price) && is_numeric($service_price)) {
+        $offer_data['price'] = $service_price;
+        
+        if (!empty($service_currency)) {
+            $offer_data['priceCurrency'] = $service_currency;
+        } else {
+            $offer_data['priceCurrency'] = 'JPY';
+        }
+    } else {
+        // 価格が設定されていない場合は価格仕様で説明
+        $price_spec = array();
+        
+        if (!empty($service_price_description)) {
+            $price_spec['description'] = $service_price_description;
+        } else {
+            $price_spec['description'] = '価格はお問い合わせください（要見積もり）。';
+        }
+        
+        $offer_data['priceSpecification'] = $price_spec;
     }
+    
+    $service_data['offers'] = $offer_data;
     
     // フィルターフックでカスタマイズ可能
     $service_data = apply_filters('gof_service_structured_data', $service_data);

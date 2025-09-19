@@ -71,10 +71,10 @@ add_action('wp_enqueue_scripts', 'gof_enqueue_scripts');
  */
 function gof_custom_post_types_config() {
     return array(
-        // サービス
+        // サービス投稿
         'service' => array(
-            'singular_name' => 'サービス',
-            'plural_name' => 'サービス',
+            'singular_name' => 'サービス投稿',
+            'plural_name' => 'サービス投稿',
             'menu_icon' => 'dashicons-admin-tools',
             'supports' => array('title', 'editor', 'thumbnail', 'excerpt', 'custom-fields', 'page-attributes'),
             'has_archive' => true,
@@ -82,10 +82,10 @@ function gof_custom_post_types_config() {
             'menu_position' => 5,
         ),
         
-        // 商品
+        // 商品投稿
         'product' => array(
-            'singular_name' => '商品',
-            'plural_name' => '商品',
+            'singular_name' => '商品投稿',
+            'plural_name' => '商品投稿',
             'menu_icon' => 'dashicons-cart',
             'supports' => array('title', 'editor', 'thumbnail', 'excerpt', 'custom-fields', 'page-attributes'),
             'has_archive' => true,
@@ -93,10 +93,10 @@ function gof_custom_post_types_config() {
             'menu_position' => 6,
         ),
         
-        // 実績
+        // 実績投稿
         'portfolio' => array(
-            'singular_name' => '実績',
-            'plural_name' => '実績',
+            'singular_name' => '実績投稿',
+            'plural_name' => '実績投稿',
             'menu_icon' => 'dashicons-portfolio',
             'supports' => array('title', 'editor', 'thumbnail', 'excerpt', 'custom-fields', 'page-attributes'),
             'has_archive' => true,
@@ -104,10 +104,10 @@ function gof_custom_post_types_config() {
             'menu_position' => 7,
         ),
         
-        // 採用
+        // 採用投稿
         'recruit' => array(
-            'singular_name' => '採用',
-            'plural_name' => '採用',
+            'singular_name' => '採用投稿',
+            'plural_name' => '採用投稿',
             'menu_icon' => 'dashicons-groups',
             'supports' => array('title', 'editor', 'thumbnail', 'excerpt', 'custom-fields', 'page-attributes'),
             'has_archive' => true,
@@ -115,10 +115,10 @@ function gof_custom_post_types_config() {
             'menu_position' => 8,
         ),
         
-        // イベント
+        // イベント投稿
         'event' => array(
-            'singular_name' => 'イベント',
-            'plural_name' => 'イベント',
+            'singular_name' => 'イベント投稿',
+            'plural_name' => 'イベント投稿',
             'menu_icon' => 'dashicons-calendar-alt',
             'supports' => array('title', 'editor', 'thumbnail', 'excerpt', 'custom-fields', 'page-attributes'),
             'has_archive' => true,
@@ -126,10 +126,10 @@ function gof_custom_post_types_config() {
             'menu_position' => 9,
         ),
         
-        // レシピ
+        // レシピ投稿
         'recipe' => array(
-            'singular_name' => 'レシピ',
-            'plural_name' => 'レシピ',
+            'singular_name' => 'レシピ投稿',
+            'plural_name' => 'レシピ投稿',
             'menu_icon' => 'dashicons-carrot',
             'supports' => array('title', 'editor', 'thumbnail', 'excerpt', 'custom-fields', 'page-attributes'),
             'has_archive' => true,
@@ -137,10 +137,10 @@ function gof_custom_post_types_config() {
             'menu_position' => 10,
         ),
         
-        // FAQ
+        // FAQ投稿
         'faq' => array(
-            'singular_name' => 'FAQ',
-            'plural_name' => 'FAQ',
+            'singular_name' => 'FAQ投稿',
+            'plural_name' => 'FAQ投稿',
             'menu_icon' => 'dashicons-editor-help',
             'supports' => array('title', 'editor', 'custom-fields', 'page-attributes'),
             'has_archive' => true,
@@ -150,10 +150,10 @@ function gof_custom_post_types_config() {
             'disable_single_page' => true, // 詳細ページを無効化
         ),
         
-        // 設備
+        // 設備投稿
         'facility' => array(
-            'singular_name' => '設備',
-            'plural_name' => '設備',
+            'singular_name' => '設備投稿',
+            'plural_name' => '設備投稿',
             'menu_icon' => 'dashicons-admin-tools',
             'supports' => array('title', 'editor', 'thumbnail', 'excerpt', 'custom-fields', 'page-attributes'),
             'has_archive' => true,
@@ -331,7 +331,7 @@ function gof_custom_fields_config() {
                 ),
                 'service_description' => array(
                     'type' => 'textarea',
-                    'label' => 'サービスの詳細',
+                    'label' => 'サービスの詳細（120〜140文字推奨）',
                     'placeholder' => 'お客様のビジネス課題を解決するための、戦略的なオーダーメイドのホームページを制作します。',
                     'rows' => 4,
                     'description' => '構造化データのdescriptionプロパティで使用',
@@ -369,6 +369,12 @@ function gof_custom_fields_config() {
                     'default' => 'JPY',
                     'description' => '構造化データのpriceCurrencyプロパティで使用',
                 ),
+                'service_price_description' => array(
+                    'type' => 'text',
+                    'label' => '価格説明（120〜140文字推奨）',
+                    'placeholder' => '価格はお問い合わせください（要見積もり）。',
+                    'description' => '価格に関する説明文（見積もり制など）',
+                ),
             ),
         ),
         
@@ -389,13 +395,13 @@ function gof_custom_fields_config() {
                 ),
                 'product_sku' => array(
                     'type' => 'text',
-                    'label' => 'SKU（商品管理番号）',
+                    'label' => 'SKU（商品管理番号）（自社内で識別するための番号：自由入力OK）',
                     'placeholder' => 'SANT-JP180',
                     'description' => '在庫管理用の商品番号',
                 ),
                 'product_mpn' => array(
                     'type' => 'text',
-                    'label' => 'MPN（製造者商品番号）',
+                    'label' => 'MPN（製造者商品番号）（自社内で識別するための番号：自由入力OK）',
                     'placeholder' => '987654321',
                     'description' => '製造者が定義した商品番号',
                 ),
@@ -566,7 +572,7 @@ function gof_custom_fields_config() {
                 ),
                 'client_website_name' => array(
                     'type' => 'text',
-                    'label' => 'クライアントサイト名',
+                    'label' => 'クライアントサイト種別',
                     'placeholder' => '株式会社〇〇 コーポレートサイト',
                     'description' => '制作したサイトの名前',
                 ),
@@ -666,7 +672,7 @@ function gof_custom_fields_config() {
                 ),
                 'job_identifier' => array(
                     'type' => 'text',
-                    'label' => '求人識別子',
+                    'label' => '求人識別子（自社内で識別するための番号：自由入力OK）',
                     'placeholder' => 'web-designer-2025',
                     'description' => '求人の一意な識別子',
                 ),
@@ -1201,7 +1207,7 @@ function gof_custom_fields_config() {
                 // FAQ基本情報
                 'faq_answer_summary' => array(
                     'type' => 'textarea',
-                    'label' => '回答要約',
+                    'label' => '回答',
                     'placeholder' => '基本プランは月額10,000円から利用可能です。詳細は料金表をご確認ください。',
                     'rows' => 3,
                     'description' => '',
@@ -1234,13 +1240,13 @@ function gof_custom_fields_config() {
                 // 基本仕様
                 'facility_model' => array(
                     'type' => 'text',
-                    'label' => 'モデル番号',
+                    'label' => 'モデル番号（自社内で識別するための番号：自由入力OK）',
                     'placeholder' => 'ABC-123',
                     'description' => '設備のモデル番号',
                 ),
                 'facility_mpn' => array(
                     'type' => 'text',
-                    'label' => 'MPN（製造者商品番号）',
+                    'label' => 'MPN（製造者商品番号）（自社内で識別するための番号：自由入力OK）',
                     'placeholder' => '987654321',
                     'description' => '製造者が定義した製品番号',
                 ),
@@ -1325,7 +1331,7 @@ function gof_custom_fields_config() {
                 ),
                 'facility_price_description' => array(
                     'type' => 'text',
-                    'label' => '価格説明',
+                    'label' => '価格説明（120〜140文字推奨）',
                     'placeholder' => '価格はお問い合わせください（要見積もり）。',
                     'description' => '価格に関する説明文（見積もり制など）',
                 ),
